@@ -1,0 +1,8 @@
+{
+  "name": "losaguilas-meneame",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:B0N1LL4/losaguilas-meneame.git",
+  "author": "aguilas",
+  "license": "MIT"
+}

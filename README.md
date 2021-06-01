@@ -1,5 +1,5 @@
 # Los Aguilas
-TECNOLOGÍAS A ELEGIR:
+TECNOLOGÍAS:
 
 -HTML & CSS
 -FRONT: Vue
