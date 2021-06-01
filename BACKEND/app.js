@@ -2,20 +2,23 @@
 
 const express = require('express')
 
-//middlewares con las rutas
+//Middlewares con las rutas
+const indexController = require('./controllers/indexController')
+const articleController = require('./controllers/articlesController')
+const commentController = require('./controllers/commentController')
+const userController = require('./controllers/usersController')
+const authController = require('./controllers/authController')
+const database = require('./modules/database')
 
-const articleController = require('./controllers/ArticlesController')
-const messagesController = require('./controllers/MessagesController')
-const usersController = require('./controllers/UsersController')
-const authController = require('./controllers/AuthController')
-//server instance
 const app = express()
-//middleware para parsear los cuerpos tipo application/JSON en el cuerpo
+
+
 app.use(express.json())
-//enganchamos los controladores de los diferentes recursos
+
+app.use(indexController)
 app.use(articleController)
-app.use(messagesController)
-app.use(usersController)
+app.use(commentController)
+app.use(userController)
 app.use(authController)
 
 database.connect()
