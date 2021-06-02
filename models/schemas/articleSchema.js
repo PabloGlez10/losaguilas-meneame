@@ -10,7 +10,8 @@ const ArticleSchema = new Schema({
   votes: {type: Number, default: 0},
   published_at: {type: Date, default: Date.now},
   category: { type: String, required: true, enum: ['Actualidad', 'Egiptología', 'Videojuegos', 'Ecologismo',"Literatura"] },
-  enabled: { type: Boolean, default: true }
+  enabled: { type: Boolean, default: true },
+  body:{type: String, required: true,minlength: 3, maxlength: 500}
 })
 
 module.exports = ArticleSchema

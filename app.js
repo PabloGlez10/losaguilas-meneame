@@ -8,7 +8,7 @@ const indexController = require('./controllers/indexController')
 // const commentController = require('./controllers/commentController')
 // const userController = require('./controllers/usersController')
 // const authController = require('./controllers/authController')
-// const database = require('./modules/database')
+ const database = require('./modules/database')
 
 const app = express()
 
@@ -21,6 +21,6 @@ app.use(articleController)
 // app.use(userController)
 // app.use(authController)
 
-// database.connect()
+database.connect()
 
 module.exports = app
