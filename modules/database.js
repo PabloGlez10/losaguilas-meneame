@@ -11,7 +11,11 @@ class Database {
     this.db = mongoose.connection;
 
     try {
+<<<<<<< HEAD
       await mongoose.connect(config.DB_CONECCTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+=======
+      await mongoose.connect(config.DB_CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+>>>>>>> b6d99197ff6410deedc56e5d0269cedd37adceb1
       console.log('Estamos conectados a la base de datos')
     }
     catch(error) {
