@@ -11,7 +11,8 @@ const authMiddleware = require('../modules/authenticator')
 router.route('/articles')
   .post( async (req, res) => {
     try {
-      let newArticle = req.body
+      let reqBody = req.body;
+      let newArticle = {"title":reqBody.title,"slug": reqBody.slug,"user": reqBody.user,"category":reqBody.category,"body":reqBody.body}
 
       if (!newArticle.hasOwnProperty("slug") ||
         (newArticle.hasOwnProperty("slug") && newArticle.slug === '')) {
@@ -29,4 +30,20 @@ router.route('/articles')
     }
   })
 
+  router.route('/articles/:articleId').delete( async (req, res) => {
+    try {
+      const articleId = req.params.articleId
+
+      const result = await articleModel.findOneAndDelete({ _id: articleId }).exec()
+
+      if (!result) {
+        res.status(404).json({ message: `Artículo con identificador ${articleId} no encontrado.` })
+        return
+      }
+
+      res.status(204).json(null)
+    } catch (error) {
+      res.status(500).json({ message: error.message })
+    }
+  })
 module.exports = router
